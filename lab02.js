@@ -32,3 +32,25 @@ function listAllFantasyBooks() {
         }
     });
 }
+// 4 Skriv ut namn och genre för alla klassiker, dystopier och mysterieböcker.
+
+function listBooksByGenre(books, genre) {
+    console.log(`Böcker inom genren ${genre}:`);
+    books.forEach(book => {
+      if (book.genre === genre) {
+        console.log(`Titel: ${book.title}, Genre: ${book.genre}`);
+      }
+    });
+  }
+
+  // 5 Skriv ut namn och pris för alla böcker som kostar över $10.
+
+  function listExpensiveBooks(books, thresholdPrice) {
+    console.log(`Böcker som kostar över $${thresholdPrice}:`);
+    books.forEach(book => {
+      if (book.price > thresholdPrice) {
+        console.log(`Titel: ${book.title}, Pris: $${book.price}`);
+      }
+    });
+  } 
+ 
