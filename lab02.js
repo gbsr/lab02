@@ -1,10 +1,14 @@
-// how many books are there?
-	// loop through list, add to sum
-	// print sum
+import { books } from './books.js';
 
 
-// print all the names of book
-// print all the names of type Fantasy
-// print all names+genre ("classics, dystopia, mystery"))
-// print name and price for all +10$
+listAllBooks(books);
 
+
+// functions
+function listAllBooks(list) {
+
+	for (var i = 0; i < list.length; i++) {
+		console.log('Title: ' + list[i].title);
+	}
+
+}
