@@ -4,6 +4,8 @@ listAllItemsInStore(books);
 listAllBooks(books);
 calculateTotalWorth(books);
 listAllFantasyBooks(books);
+listBooksByGenre(books);
+listExpensiveBooks(books);
 
 // 1 Hur många böcker finns det i affären?
 function listAllItemsInStore(list) {
