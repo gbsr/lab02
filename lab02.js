@@ -4,7 +4,7 @@ listAllItemsInStore(books); // 1
 listAllBooks(books); // 2
 listAllFantasyBooks(books); // 3
 calculateTotalWorth(books); // 6
-calculateMaxGenreWorth(books); // 7 
+calculateMaxGenreWorth(books, 'Dystopian', 'Mystery'); // 7 
 listBooksByGenre(books);
 listExpensiveBooks(books);
 
@@ -40,25 +40,24 @@ function calculateTotalWorth(list) {
 }
 
 // 7 Vilka böcker är sammanlagt värda mest, dystopian eller mystery?
-// TODO: make helper function to list any selected genre
-// TODO: refactor this function
 
-function calculateMaxGenreWorth(list, genre) {
+function calculateMaxGenreWorth(list, genre1, genre2) {
+	// TODO: error checking
 
-	let genreDystopian = books.filter(book => book.genre === 'Dystopian');
-	let genreMystery = books.filter(book => book.genre === 'Mystery');
+	let genreA = list.filter(book => book.genre === genre1);
+	let genreB = list.filter(book => book.genre === genre2);
 	let maxGenreWorth = '';
 
 	// total here is a var we define as 0
-	let totalDystopianPrice = genreDystopian.reduce((total, book) => total + book.price, 0);
-	let totalMysteryPrice = genreMystery.reduce((total, book) => total + book.price, 0);
+	let totalPrice_GenreA = genreA.reduce((total, book) => total + book.price, 0);
+	let totalPrice_GenreB = genreB.reduce((total, book) => total + book.price, 0);
 
-	if (totalMysteryPrice < totalDystopianPrice) maxGenreWorth = 'Dystopian ';
-	else if (totalMysteryPrice > totalDystopianPrice) maxGenreWorth = 'Mystery';
+	if (totalPrice_GenreB < totalPrice_GenreA) maxGenreWorth = genre1;
+	else if (totalPrice_GenreB > totalPrice_GenreA) maxGenreWorth = genre2;
 
 	console.log('');
-	if (totalMysteryPrice === totalDystopianPrice) console.log('Well, what do you know, the two happens to have the exact same worth :o');
-	else console.log('Comparing the genres Dystopian and Mystery, we can see that the genre ' + maxGenreWorth + ' is worth the most.');
+	if (totalPrice_GenreB === totalPrice_GenreA) console.log('Well, what do you know, the two happens to have the exact same worth :o');
+	else console.log('Comparing the genres ' + genre1 + ' and ' + genre2 + ' , we can see that the genre ' + maxGenreWorth + ' is worth the most.');
 	console.log('');
 }
 
@@ -93,25 +92,25 @@ function listExpensiveBooks(books) {
 	});
 }
 
-  //10 Vilka författare har ett namn som består av mer än 2 ord? 
-  //Ta inte med författare som har punkter i sina namn.
+//10 Vilka författare har ett namn som består av mer än 2 ord? 
+//Ta inte med författare som har punkter i sina namn.
 
-  function findAuthorsWithLongNames(books) {
-    const authors = [];
-    books.forEach(book => {
-      const authorName = book.author;
-      const words = authorName.split(' ');
-      const formattedWords = words.filter(word => word !== "");
-      if (formattedWords.length > 2 && !authorName.includes('.')) {
-        authors.push(authorName);
-      }
-    });
-    return authors;
-  }
-  
-  const authorsWithLongNames = findAuthorsWithLongNames(books);
-  console.log("Författare med namn som består av mer än 2 ord och inga punkter:");
-  console.log(authorsWithLongNames);
+function findAuthorsWithLongNames(books) {
+	const authors = [];
+	books.forEach(book => {
+		const authorName = book.author;
+		const words = authorName.split(' ');
+		const formattedWords = words.filter(word => word !== "");
+		if (formattedWords.length > 2 && !authorName.includes('.')) {
+			authors.push(authorName);
+		}
+	});
+	return authors;
+}
 
-  //11 Skriv ut namnen på alla författare i bokstavsordning. Sortera efter författarens efternamn.
-  
+const authorsWithLongNames = findAuthorsWithLongNames(books);
+console.log("Författare med namn som består av mer än 2 ord och inga punkter:");
+console.log(authorsWithLongNames);
+
+//11 Skriv ut namnen på alla författare i bokstavsordning. Sortera efter författarens efternamn.
+
