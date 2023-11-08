@@ -64,12 +64,13 @@ function listBooksByGenre(books, genre) {
 
   // 5 Skriv ut namn och pris för alla böcker som kostar över $10.
 
-  function listExpensiveBooks(books, thresholdPrice) {
-    console.log(`Böcker som kostar över $${thresholdPrice}:`);
+  function listExpensiveBooks(books) {
+    console.log("Böcker som kostar över $10:");
     books.forEach(book => {
-      if (book.price > thresholdPrice) {
+      if (book.price > 10) {
         console.log(`Titel: ${book.title}, Pris: $${book.price}`);
       }
     });
-  } 
+  }
+ 
  
