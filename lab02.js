@@ -1,19 +1,19 @@
 import { books } from "./books.js";
 
-listAllItemsInStore(books);				 						// 1
-listAllBooks(books); 											// 2
-listAllFantasyBooks(books); 									// 3
-listBooksByGenre(books, "Classic");								// 4
-listExpensiveBooks(books);										// 5
-calculateTotalWorth(books); 									// 6
-calculateMaxGenreWorth(books, 'Dystopian', 'Classic'); 			// 7 
+// listAllItemsInStore(books);				 						// 1
+// listAllBooks(books); 											// 2
+// listAllFantasyBooks(books); 									// 3
+// listBooksByGenre(books, "Classic");								// 4
+// listExpensiveBooks(books);										// 5
+// calculateTotalWorth(books); 									// 6
+// calculateMaxGenreWorth(books, 'Dystopian', 'Classic'); 			// 7 
 // 8
 // 9
 // 10
 // 11
 // 12
 // 13
-// 14
+addBook(books, 'My cup of JavaScript', 'Anders Hofsten', 'Truth', 9.99);// 14
 
 // 1 Hur många böcker finns det i affären?
 function listAllItemsInStore(books) {
@@ -115,10 +115,31 @@ function findAuthorsWithLongNames(books) {
 	});
 	return authors;
 }
+// This needs to be inside the function so that
 
-const authorsWithLongNames = findAuthorsWithLongNames(books);
-console.log("Författare med namn som består av mer än 2 ord och inga punkter:");
-console.log(authorsWithLongNames);
+// const authorsWithLongNames = findAuthorsWithLongNames(books);
+// console.log("Författare med namn som består av mer än 2 ord och inga punkter:");
+// console.log(authorsWithLongNames);
 
 //11 Skriv ut namnen på alla författare i bokstavsordning. Sortera efter författarens efternamn.
+
+
+// 14 Skriv färdigt funktionen, som ska kunna lägga till en ny bok sist i listan.
+function addBook(list, title, author, genre, price) {
+
+
+	const newBook = { title: title, author: author, genre: genre, price: price };
+
+	console.log('');
+	console.log('Currently our inventory is ' + list.length + ' books.');
+	console.log('');
+
+	list.push(newBook);
+
+	console.log('We added ' + list[list.length - 1].title + ' by ' + newBook.author + ' to our inventory; it is filed under the ' + newBook.genre + '-genre.');
+	console.log('The price is set at ' + newBook.price + ' money-units.');
+	console.log('Our inventory is now ' + list.length + ' books and counting!');
+}
+
+
 
