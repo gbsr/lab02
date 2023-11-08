@@ -1,15 +1,22 @@
 import { books } from "./books.js";
 
-listAllItemsInStore(books); // 1
-listAllBooks(books); // 2
-listAllFantasyBooks(books); // 3
-calculateTotalWorth(books); // 6
-calculateMaxGenreWorth(books, 'Dystopian', 'Mystery'); // 7 
-listBooksByGenre(books);
-listExpensiveBooks(books);
+listAllItemsInStore(books);				 						// 1
+listAllBooks(books); 											// 2
+listAllFantasyBooks(books); 									// 3
+listBooksByGenre(books, "Classic");								// 4
+listExpensiveBooks(books);										// 5
+calculateTotalWorth(books); 									// 6
+calculateMaxGenreWorth(books, 'Dystopian', 'Classic'); 			// 7 
+// 8
+// 9
+// 10
+// 11
+// 12
+// 13
+// 14
 
 // 1 Hur många böcker finns det i affären?
-function listAllItemsInStore(list) {
+function listAllItemsInStore(books) {
 	let i = 0;
 	let numOfStockItems = 0;
 	for (i = 0; i < books.length; i++) {
@@ -20,17 +27,46 @@ function listAllItemsInStore(list) {
 }
 
 // 2 Skriv ut namnen på alla böcker. (Skapa först en lista som bara innehåller namnen.)
-function listAllBooks(list) {
+function listAllBooks(books) {
 	let i = 0;
 	console.log("These are the titles in store:");
 	console.log("");
-	for (i = 0; i < list.length; i++) {
-		console.log("Title: " + i + " " + list[i].title);
+	for (i = 0; i < books.length; i++) {
+		console.log("Title: " + i + " " + books[i].title);
 	}
 }
 
+// 3 Skriv ut namn och pris för alla böcker av typen "Fantasy".
+function listAllFantasyBooks() {
+	console.log("These are the books with the Fantasy genre:");
+	books.forEach((book) => {
+		if (book.genre === "Fantasy") {
+			console.log(`${book.title} and it costs ${book.price}`);
+		}
+	});
+}
+// 4 Skriv ut namn och genre för alla klassiker, dystopier och mysterieböcker.
+function listBooksByGenre(books, genre) {
+	console.log(`Böcker inom genren ${genre}:`);
+	books.forEach(book => {
+		if (book.genre === genre) {
+			console.log(`Titel: ${book.title}, Genre: ${book.genre}`);
+		}
+	});
+}
+
+// 5 Skriv ut namn och pris för alla böcker som kostar över $10.
+function listExpensiveBooks(books) {
+	console.log("Böcker som kostar över $10:");
+	books.forEach(book => {
+		if (book.price > 10) {
+			console.log(`Titel: ${book.title}, Pris: $${book.price}`);
+		}
+	});
+}
+
 // 6 Hur mycket är hela bokinnehavet värt? (Vad är det totala priset, om man skulle sälja alla böcker?)
-function calculateTotalWorth(list) {
+function calculateTotalWorth(books) {
 	let total = 0;
 	let totalSum = 0;
 	books.forEach(book => { total += book.price; });
@@ -40,7 +76,6 @@ function calculateTotalWorth(list) {
 }
 
 // 7 Vilka böcker är sammanlagt värda mest, dystopian eller mystery?
-
 function calculateMaxGenreWorth(list, genre1, genre2) {
 	// TODO: error checking
 
@@ -61,36 +96,9 @@ function calculateMaxGenreWorth(list, genre1, genre2) {
 	console.log('');
 }
 
-// 3 Skriv ut namn och pris för alla böcker av typen "Fantasy".
-function listAllFantasyBooks() {
-	console.log("These are the books with the Fantasy genre:");
-	books.forEach((book) => {
-		if (book.genre === "Fantasy") {
-			console.log(`${book.title} and it costs ${book.price}`);
-		}
-	});
-}
-// 4 Skriv ut namn och genre för alla klassiker, dystopier och mysterieböcker.
 
-function listBooksByGenre(books, genre) {
-	console.log(`Böcker inom genren ${genre}:`);
-	books.forEach(book => {
-		if (book.genre === genre) {
-			console.log(`Titel: ${book.title}, Genre: ${book.genre}`);
-		}
-	});
-}
 
-// 5 Skriv ut namn och pris för alla böcker som kostar över $10.
 
-function listExpensiveBooks(books) {
-	console.log("Böcker som kostar över $10:");
-	books.forEach(book => {
-		if (book.price > 10) {
-			console.log(`Titel: ${book.title}, Pris: $${book.price}`);
-		}
-	});
-}
 
 //10 Vilka författare har ett namn som består av mer än 2 ord? 
 //Ta inte med författare som har punkter i sina namn.
