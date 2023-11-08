@@ -73,4 +73,26 @@ function listBooksByGenre(books, genre) {
     });
   }
  
+  //10 Vilka författare har ett namn som består av mer än 2 ord? 
+  //Ta inte med författare som har punkter i sina namn.
+
+  function findAuthorsWithLongNames(books) {
+    const authors = [];
+    books.forEach(book => {
+      const authorName = book.author;
+      const words = authorName.split(' ');
+      const formattedWords = words.filter(word => word !== "");
+      if (formattedWords.length > 2 && !authorName.includes('.')) {
+        authors.push(authorName);
+      }
+    });
+    return authors;
+  }
+  
+  const authorsWithLongNames = findAuthorsWithLongNames(books);
+  console.log("Författare med namn som består av mer än 2 ord och inga punkter:");
+  console.log(authorsWithLongNames);
+
+  //11 Skriv ut namnen på alla författare i bokstavsordning. Sortera efter författarens efternamn.
+  
  
