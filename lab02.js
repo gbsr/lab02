@@ -5,6 +5,8 @@ listAllBooks(books); // 2
 listAllFantasyBooks(books); // 3
 calculateTotalWorth(books); // 6
 calculateMaxGenreWorth(books); // 7 
+listBooksByGenre(books);
+listExpensiveBooks(books);
 
 // 1 Hur många böcker finns det i affären?
 function listAllItemsInStore(list) {
@@ -96,3 +98,26 @@ function listAllFantasyBooks() {
 		}
 	});
 }
+// 4 Skriv ut namn och genre för alla klassiker, dystopier och mysterieböcker.
+
+function listBooksByGenre(books, genre) {
+    console.log(`Böcker inom genren ${genre}:`);
+    books.forEach(book => {
+      if (book.genre === genre) {
+        console.log(`Titel: ${book.title}, Genre: ${book.genre}`);
+      }
+    });
+  }
+
+  // 5 Skriv ut namn och pris för alla böcker som kostar över $10.
+
+  function listExpensiveBooks(books) {
+    console.log("Böcker som kostar över $10:");
+    books.forEach(book => {
+      if (book.price > 10) {
+        console.log(`Titel: ${book.title}, Pris: $${book.price}`);
+      }
+    });
+  }
+ 
+ 
