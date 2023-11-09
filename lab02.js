@@ -122,10 +122,24 @@ function findAuthorsWithLongNames(books) {
 // console.log(authorsWithLongNames);
 
 //11 Skriv ut namnen på alla författare i bokstavsordning. Sortera efter författarens efternamn.
-
+function sortAuthorsAlphabetically(books) {
+    const authors = books.map(book => {
+      return book.author;
+    });
+    authors.sort((a, b) => {
+      const lastNameA = a.split(' ').slice(-1)[0];
+      const lastNameB = b.split(' ').slice(-1)[0];
+      return lastNameA.localeCompare(lastNameB);
+    });
+    return authors;
+  }
+  
+  const sortedAuthors = sortAuthorsAlphabetically(books);
+  console.log("Författarnas namn i bokstavsordning efter efternamn:");
+  console.log(sortedAuthors)
 
 // 14 Skriv färdigt funktionen, som ska kunna lägga till en ny bok sist i listan.
-function addBook(list, title, author, genre, price) {
+ function addBook(list, title, author, genre, price) {
 
 
 	const newBook = { title: title, author: author, genre: genre, price: price };
