@@ -1,7 +1,7 @@
 import { books } from "./books.js";
 
 // listAllItemsInStore(books);				 						// 1
-// listAllBooks(books); 											// 2
+// listAllBooks(books); // 2
 // listAllFantasyBooks(books); 									// 3
 // listBooksByGenre(books, "Classic");								// 4
 // listExpensiveBooks(books);										// 5
@@ -12,7 +12,7 @@ import { books } from "./books.js";
 // 10
 // 11
 // 12
-// 13
+// listBooksLength(books);
 // addBook(books, 'My cup of JavaScript', 'Anders Hofsten', 'Truth', 9.99);// 14
 
 // 1 Hur många böcker finns det i affären?
@@ -206,3 +206,15 @@ function sortAllTitlesAsc() {
 
 /* 9 Vilken bok finns det en dubblett av?
 Tips: ni kan skapa en ny lista och använda metoden includes. */
+
+// 13 Skriv ut böckernas titel, sorterat efter titelns längd, i stigande ordning.
+function listBooksLength(books) {
+    function compareStringLength(a, b) {
+        return a.title.length - b.title.length;
+    }
+    const sortedList = books.slice().sort(compareStringLength);
+    console.log("Here are the titles sorted in length: ");
+    for (let i = 0; i < sortedList.length; i++) {
+        console.log("Title: " + i + " " + sortedList[i].title);
+    }
+}
