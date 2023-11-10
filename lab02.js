@@ -146,7 +146,6 @@ Tips: ni kan skapa en ny lista och använda metoden includes. */
 //10 Vilka författare har ett namn som består av mer än 2 ord?
 //Ta inte med författare som har punkter i sina namn.
 function findAuthorsWithLongNames(books) {
-	// TODO: make sure everything is run inside the function :)
 	const authors = [];
 	books.forEach((book) => {
 		const authorName = book.author;
