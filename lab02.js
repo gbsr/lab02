@@ -2,14 +2,17 @@ import { books } from "./books.js";
 
 // listAllItemsInStore(books);				 									// 1
 // listAllBooks(books); 														// 2
-// listAllFantasyBooks(books); 													// 3
-// listBooksByGenre(books, "Classic");											// 4
+// listAllFantasyBooks(books); 		
+// 3
+const genresArray = ['Classic', 'Dystopian', 'Mystery'];
+listBooksByGenre(books, genresArray);											// 4
+
 // listExpensiveBooks(books);													// 5
 // calculateTotalWorth(books); 													// 6
 // calculateMaxGenreWorth(books, 'Dystopian', 'Classic'); 						// 7
 // sortAllTitlesAsc(); 															// 8
 // 9
-findAuthorsWithLongNames(books); 												// 10
+// findAuthorsWithLongNames(books); 												// 10
 // sortAuthorsAlphabetically(books); 												// 11
 // 12
 // listBooksLength(books); 														// 13
@@ -47,13 +50,14 @@ function listAllFantasyBooks() {
 	});
 }
 // 4 Skriv ut namn och genre för alla klassiker, dystopier och mysterieböcker.
-function listBooksByGenre(books, genre) {
-	// TODO: re-write to list all 3 genres
-	console.log(`Böcker inom genren ${genre}:`);
-	books.forEach((book) => {
-		if (book.genre === genre) {
-			console.log(`Titel: ${book.title}, Genre: ${book.genre}`);
-		}
+function listBooksByGenre(books, []) {
+	//TODO: Sort books by genre
+	books.forEach(book => {
+
+		if (book.genre === genresArray[0]) console.log(`Title: ${book.title}, Genre: ${book.genre}`);
+		else if (book.genre === genresArray[1]) console.log(`Title: ${book.title}, Genre: ${book.genre}`);
+		else if (book.genre === genresArray[2]) console.log(`Title: ${book.title}, Genre: ${book.genre}`);
+
 	});
 }
 
