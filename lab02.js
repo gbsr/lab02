@@ -14,7 +14,7 @@ listBooksByGenre(books, genresArray);											// 4
 // 9
 // findAuthorsWithLongNames(books); 												// 10
 // sortAuthorsAlphabetically(books); 												// 11
-// 12
+// listBooksNotStartingWithThe(books);                                             // 12
 // listBooksLength(books); 														// 13
 // addBook(books, 'My cup of JavaScript', 'Anders Hofsten', 'Truth', 9.99);	// 14
 
@@ -144,8 +144,8 @@ function sortAllTitlesAsc() {
 	);
 }
 
-/* 9 Vilken bok finns det en dubblett av?
-Tips: ni kan skapa en ny lista och använda metoden includes. */
+ //9 Vilken bok finns det en dubblett av?
+//Tips: ni kan skapa en ny lista och använda metoden includes. 
 
 //10 Vilka författare har ett namn som består av mer än 2 ord?
 //Ta inte med författare som har punkter i sina namn.
@@ -179,11 +179,21 @@ function sortAuthorsAlphabetically(books) {
 		return authors;
 	});
 	console.log("Författarnas namn i bokstavsordning efter efternamn:");
-	console.log(authors);
+	console.log(authors);  
 }
-// const sortedAuthors = sortAuthorsAlphabetically(books);
+// const sortedAuthors = sortAuthorsAlphabetically(books); 
 
 // 12 Skriv ut namnen på alla böcker vars titel inte börjar med "The".
+
+function listBooksNotStartingWithThe(books) {
+    console.log("Böcker vars titel inte börjar med 'The':");
+    books.forEach(book => {
+        if (!book.title.startsWith("The")) {
+            console.log(`Titel: ${book.title}`);
+        }
+    });
+}
+listBooksNotStartingWithThe(books);
 
 // 13 Skriv ut böckernas titel, sorterat efter titelns längd, i stigande ordning.
 function listBooksLength(books) {
