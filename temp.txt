@@ -1,0 +1,29 @@
+
+
+
+
+
+
+
+
+8 Skriv ut namnen på alla böcker i bokstavsordning.
+
+
+9 Vilken bok finns det en dubblett av?
+Tips: ni kan skapa en ny lista och använda metoden includes.
+
+
+10 Vilka författare har ett namn som består av mer än 2 ord? Ta inte med författare som har punkter i sina namn.
+
+
+11 Skriv ut namnen på alla författare i bokstavsordning. Sortera efter författarens efternamn.
+Tips: strängmetoden split.
+
+
+12 Skriv ut namnen på alla böcker vars titel inte börjar med "The".
+
+
+13 Skriv ut böckernas titel, sorterat efter titelns längd, i stigande ordning.
+
+
+14 Skriv färdigt funktionen, som ska kunna lägga till en ny bok sist i listan.
