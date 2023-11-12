@@ -11,7 +11,7 @@ listBooksByGenre(books, genresArray);											// 4
 // calculateTotalWorth(books); 													// 6
 // calculateMaxGenreWorth(books, 'Dystopian', 'Classic'); 						// 7
 // sortAllTitlesAsc(); 															// 8
-// 9
+// duplicateBooks ()
 // findAuthorsWithLongNames(books); 												// 10
 // sortAuthorsAlphabetically(books); 												// 11
 // listBooksNotStartingWithThe(books);                                             // 12
@@ -145,8 +145,31 @@ function sortAllTitlesAsc() {
 }
 
  //9 Vilken bok finns det en dubblett av?
-//Tips: ni kan skapa en ny lista och använda metoden includes. 
-
+function duplicateBooks (){
+function findDuplicateBooks(books, property) {
+	const seen = new Set();
+	const duplicates = [];
+  
+	for (const book of books) {
+	  const value = book[property];
+  
+	  if (seen.has(value)) {
+		duplicates.push(book);
+	  } else {
+		seen.add(value);
+	  }
+	}
+  
+	return duplicates;
+  }
+  const duplicateTitles = findDuplicateBooks(books, 'title');
+	for (let i = 0; i < duplicateTitles.length; i++) {
+    const book = duplicateTitles[i];
+    console.log(`${book.title} is a duplicate.`);
+}
+}
+	
+	
 //10 Vilka författare har ett namn som består av mer än 2 ord?
 //Ta inte med författare som har punkter i sina namn.
 function findAuthorsWithLongNames(books) {
