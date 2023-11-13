@@ -1,22 +1,20 @@
 import { books } from "./books.js";
-
-// listAllItemsInStore(books);				 									// 1
-// listAllBooks(books); 														// 2
-// listAllFantasyBooks(books); 		
-// 3
 const genresArray = ['Classic', 'Dystopian', 'Mystery'];
-listBooksByGenre(books, genresArray);											// 4
 
-// listExpensiveBooks(books);													// 5
+// listAllItemsInStore(books);				 										// 1
+// listAllBooks(books); 															// 2
+// listAllFantasyBooks(books); 													// 3
+// listBooksByGenre(books, genresArray);											// 4
+// listExpensiveBooks(books);														// 5
 // calculateTotalWorth(books); 													// 6
-// calculateMaxGenreWorth(books, 'Dystopian', 'Classic'); 						// 7
+// calculateMaxGenreWorth(books, 'Dystopian', 'Classic');	 						// 7
 // sortAllTitlesAsc(); 															// 8
-// duplicateBooks ()
+// duplicateBooks ();	 															// 9
 // findAuthorsWithLongNames(books); 												// 10
 // sortAuthorsAlphabetically(books); 												// 11
 // listBooksNotStartingWithThe(books);                                             // 12
 // listBooksLength(books); 														// 13
-// addBook(books, 'My cup of JavaScript', 'Anders Hofsten', 'Truth', 9.99);	// 14
+// addBook(books, 'My cup of JavaScript', 'Anders Hofsten', 'Truth', 9.99);		// 14
 
 // 1 Hur många böcker finns det i affären?
 function listAllItemsInStore(books) {
@@ -144,32 +142,32 @@ function sortAllTitlesAsc() {
 	);
 }
 
- //9 Vilken bok finns det en dubblett av?
-function duplicateBooks (){
-function findDuplicateBooks(books, property) {
-	const seen = new Set();
-	const duplicates = [];
-  
-	for (const book of books) {
-	  const value = book[property];
-  
-	  if (seen.has(value)) {
-		duplicates.push(book);
-	  } else {
-		seen.add(value);
-	  }
+//9 Vilken bok finns det en dubblett av?
+function duplicateBooks() {
+	function findDuplicateBooks(books, property) {
+		const seen = new Set();
+		const duplicates = [];
+
+		for (const book of books) {
+			const value = book[property];
+
+			if (seen.has(value)) {
+				duplicates.push(book);
+			} else {
+				seen.add(value);
+			}
+		}
+
+		return duplicates;
 	}
-  
-	return duplicates;
-  }
-  const duplicateTitles = findDuplicateBooks(books, 'title');
+	const duplicateTitles = findDuplicateBooks(books, 'title');
 	for (let i = 0; i < duplicateTitles.length; i++) {
-    const book = duplicateTitles[i];
-    console.log(`${book.title} is a duplicate.`);
+		const book = duplicateTitles[i];
+		console.log(`${book.title} is a duplicate.`);
+	}
 }
-}
-	
-	
+
+
 //10 Vilka författare har ett namn som består av mer än 2 ord?
 //Ta inte med författare som har punkter i sina namn.
 function findAuthorsWithLongNames(books) {
@@ -202,21 +200,21 @@ function sortAuthorsAlphabetically(books) {
 		return authors;
 	});
 	console.log("Författarnas namn i bokstavsordning efter efternamn:");
-	console.log(authors);  
+	console.log(authors);
 }
 // const sortedAuthors = sortAuthorsAlphabetically(books); 
 
 // 12 Skriv ut namnen på alla böcker vars titel inte börjar med "The".
 
 function listBooksNotStartingWithThe(books) {
-    console.log("Böcker vars titel inte börjar med 'The':");
-    books.forEach(book => {
-        if (!book.title.startsWith("The")) {
-            console.log(`Titel: ${book.title}`);
-        }
-    });
+	console.log("Böcker vars titel inte börjar med 'The':");
+	books.forEach(book => {
+		if (!book.title.startsWith("The")) {
+			console.log(`Titel: ${book.title}`);
+		}
+	});
 }
-listBooksNotStartingWithThe(books);
+// listBooksNotStartingWithThe(books);
 
 // 13 Skriv ut böckernas titel, sorterat efter titelns längd, i stigande ordning.
 function listBooksLength(books) {
